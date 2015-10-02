@@ -1,0 +1,12 @@
+d:\ForLearning\VHD_HELPER\VHD_HELPER\bin\Debug\VHD_HELPER.exe.config
+d:\ForLearning\VHD_HELPER\VHD_HELPER\bin\Debug\VHD_HELPER.exe
+d:\ForLearning\VHD_HELPER\VHD_HELPER\bin\Debug\VHD_HELPER.pdb
+d:\ForLearning\VHD_HELPER\VHD_HELPER\obj\Debug\MainWindow.baml
+d:\ForLearning\VHD_HELPER\VHD_HELPER\obj\Debug\MainWindow.g.cs
+d:\ForLearning\VHD_HELPER\VHD_HELPER\obj\Debug\App.g.cs
+d:\ForLearning\VHD_HELPER\VHD_HELPER\obj\Debug\VHD_HELPER_MarkupCompile.cache
+d:\ForLearning\VHD_HELPER\VHD_HELPER\obj\Debug\VHD_HELPER.g.resources
+d:\ForLearning\VHD_HELPER\VHD_HELPER\obj\Debug\VHD_HELPER.Properties.Resources.resources
+d:\ForLearning\VHD_HELPER\VHD_HELPER\obj\Debug\VHD_HELPER.csproj.GenerateResource.Cache
+d:\ForLearning\VHD_HELPER\VHD_HELPER\obj\Debug\VHD_HELPER.exe
+d:\ForLearning\VHD_HELPER\VHD_HELPER\obj\Debug\VHD_HELPER.pdb
