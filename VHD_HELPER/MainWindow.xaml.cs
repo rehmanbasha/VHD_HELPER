@@ -45,7 +45,7 @@ namespace VHD_HELPER
                     if (attached)
                     {                       
                         statusbar.Background = (Brush)bc.ConvertFrom("#2E8DEF"); 
-                        status_text.Text = "Selected File: " + file.ToString();
+                        status_text.Text = "Selected File: " + file.ToString();                        
                         data.Add(new MyDataGridColumns()
                         {
                             Filename = file.ToString(),
@@ -66,7 +66,6 @@ namespace VHD_HELPER
                     break;
             }
         }
-
         private void DetachButton_Click(object sender, RoutedEventArgs e)
         {
             int items_count = VHDDataGrid.Items.Count;
@@ -84,7 +83,7 @@ namespace VHD_HELPER
                         BrushConverter bc = new BrushConverter();
                         statusbar.Background = (Brush)bc.ConvertFrom("#2E8DEF");
                         status_text.Text = "Detached File: " + vhd;
-                        //data.RemoveAt(i);                        
+                        data.RemoveAt(i);                        
                     }
                     else
                     {
