@@ -64,15 +64,13 @@ namespace VHD_HELPER
             switch (result)
             {
                 case System.Windows.Forms.DialogResult.OK:
-                    //var obj = new MyDataGridColumns();                    
+                                      
                     var file = fileDialog.FileName;
                     
                     //filename_lbl.Content = "Selected File:" +file.ToString();
                     bool attached=mount.OpenAndAttachVHD(file.ToString());
                     if (attached)
                     {                       
-                        //statusbar.Background = (Brush)bc.ConvertFrom("#2E8DEF"); 
-                        //status_text.Text = "Selected File: " + file.ToString();
                         string msg = "Selected File: " + file.ToString();
                         StatusUpdate(status.success, msg);
                         data.Add(new MyDataGridColumns()
@@ -86,8 +84,6 @@ namespace VHD_HELPER
 
                     else
                     {
-                        //statusbar.Background = (Brush)bc.ConvertFrom("#DC572E"); 
-                        //status_text.Text = "Attaching VHD Failed ";
                         string msg = "Attaching VHD Failed ";
                         StatusUpdate(status.failure, msg);
                     }                    
@@ -114,15 +110,10 @@ namespace VHD_HELPER
                     {
                         string msg = "Detached File: " + vhd;
                         StatusUpdate(status.success, msg);
-                        ////BrushConverter bc = new BrushConverter();
-                        ////statusbar.Background = (Brush)bc.ConvertFrom("#2E8DEF");
-                        //status_text.Text = "Detached File: " + vhd;
                         data.RemoveAt(i);                        
                     }
                     else
-                    {
-                        //statusbar.Background = (Brush)bc.ConvertFrom("#DC572E");
-                        //status_text.Text = "Detaching VHD Failed " + vhd;
+                    {                        
                         string msg = "Detaching VHD Failed " + vhd;
                         StatusUpdate(status.failure, msg);
                     }
