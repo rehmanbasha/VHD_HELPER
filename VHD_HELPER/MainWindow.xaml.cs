@@ -22,13 +22,40 @@ namespace VHD_HELPER
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        List<MyDataGridColumns> data = new List<MyDataGridColumns>();
+        BrushConverter bc = new BrushConverter();
+
+        public MainWindow(string file="")
         {
             InitializeComponent();
-            status_text.Text = "Ready";           
+            status_text.Text = "Ready";    
+       
+            if (file != "")
+            {
+                bool attached = mount.OpenAndAttachVHD(file.ToString());
+                if (attached)
+                {
+                    statusbar.Background = (Brush)bc.ConvertFrom("#2E8DEF");
+                    status_text.Text = "Selected File: " + file.ToString();
+                    data.Add(new MyDataGridColumns()
+                    {
+                        Filename = file.ToString(),
+                        Disksignature = "1234"
+                    });
+                    VHDDataGrid.ItemsSource = data;
+                    VHDDataGrid.Items.Refresh();
+                }
+
+                else
+                {
+                    statusbar.Background = (Brush)bc.ConvertFrom("#DC572E");
+                    status_text.Text = "Attaching VHD Failed " +file.ToString();
+                }                    
+            }
+
+            VHDDataGrid.ItemsSource = data;
         }
-        List <MyDataGridColumns> data = new List<MyDataGridColumns>();
-        BrushConverter bc = new BrushConverter();
+        
         private void AttachButton_Click(object sender, RoutedEventArgs e)
         {
             var fileDialog = new System.Windows.Forms.OpenFileDialog();
