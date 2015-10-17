@@ -22,6 +22,9 @@ namespace VHD_HELPER
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<MyDataGridColumns> data = new List<MyDataGridColumns>();
+        BrushConverter bc = new BrushConverter();
+
         public MainWindow(string file="")
         {
             InitializeComponent();
@@ -48,11 +51,11 @@ namespace VHD_HELPER
                     statusbar.Background = (Brush)bc.ConvertFrom("#DC572E");
                     status_text.Text = "Attaching VHD Failed " +file.ToString();
                 }                    
-
             }
+
+            VHDDataGrid.ItemsSource = data;
         }
-        List <MyDataGridColumns> data = new List<MyDataGridColumns>();
-        BrushConverter bc = new BrushConverter();
+        
         private void AttachButton_Click(object sender, RoutedEventArgs e)
         {
             var fileDialog = new System.Windows.Forms.OpenFileDialog();
