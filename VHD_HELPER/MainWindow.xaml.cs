@@ -44,8 +44,10 @@ namespace VHD_HELPER
                     bool attached=mount.OpenAndAttachVHD(file.ToString());
                     if (attached)
                     {                       
-                        statusbar.Background = (Brush)bc.ConvertFrom("#2E8DEF"); 
-                        status_text.Text = "Selected File: " + file.ToString();                        
+                        //statusbar.Background = (Brush)bc.ConvertFrom("#2E8DEF"); 
+                        //status_text.Text = "Selected File: " + file.ToString();
+                        string msg = "Selected File: " + file.ToString();
+                        StatusUpdate(status.success, msg);
                         data.Add(new MyDataGridColumns()
                         {
                             Filename = file.ToString(),
@@ -57,13 +59,16 @@ namespace VHD_HELPER
 
                     else
                     {
-                        statusbar.Background = (Brush)bc.ConvertFrom("#DC572E"); 
-                        status_text.Text = "Attaching VHD Failed ";
+                        //statusbar.Background = (Brush)bc.ConvertFrom("#DC572E"); 
+                        //status_text.Text = "Attaching VHD Failed ";
+                        string msg = "Attaching VHD Failed ";
+                        StatusUpdate(status.failure, msg);
                     }                    
                     break;
                 case System.Windows.Forms.DialogResult.Cancel:
                 default:
                     break;
+
             }
         }
         private void DetachButton_Click(object sender, RoutedEventArgs e)
@@ -80,22 +85,55 @@ namespace VHD_HELPER
                     bool detached = mount.OpenAndDetachVHD(vhd);
                     if (detached)
                     {
-                        BrushConverter bc = new BrushConverter();
-                        statusbar.Background = (Brush)bc.ConvertFrom("#2E8DEF");
-                        status_text.Text = "Detached File: " + vhd;
+                        string msg = "Detached File: " + vhd;
+                        StatusUpdate(status.success, msg);
+                        ////BrushConverter bc = new BrushConverter();
+                        ////statusbar.Background = (Brush)bc.ConvertFrom("#2E8DEF");
+                        //status_text.Text = "Detached File: " + vhd;
                         data.RemoveAt(i);                        
                     }
                     else
                     {
-                        statusbar.Background = (Brush)bc.ConvertFrom("#DC572E");
-                        status_text.Text = "Detaching VHD Failed " + vhd;
-                    }                    
+                        //statusbar.Background = (Brush)bc.ConvertFrom("#DC572E");
+                        //status_text.Text = "Detaching VHD Failed " + vhd;
+                        string msg = "Detaching VHD Failed " + vhd;
+                        StatusUpdate(status.failure, msg);
+                    }
+                    
                 }
             }
             // Update Data Grid Table
             VHDDataGrid.ItemsSource = data;
             VHDDataGrid.Items.Refresh();
         }
+
+        private void StatusUpdate(status sc,string message)
+        {
+            BrushConverter bc = new BrushConverter();
+
+            switch(sc)
+            {
+                case status.success:
+                    statusbar.Background = (Brush)bc.ConvertFrom("#2E8DEF");
+                    break;;
+                case status.failure:
+                    statusbar.Background = (Brush)bc.ConvertFrom("#DC572E");
+                    break;;
+                case status.warning:
+                    statusbar.Background = (Brush)bc.ConvertFrom("#DC572E");
+                    break; ;    
+            }
+            
+            status_text.Text = message;     
+        }
+        
+    }
+
+    public enum status
+    {
+        success,
+        failure,
+        warning
     }
 
     public class MyDataGridColumns

@@ -15,7 +15,7 @@
             </Grid.Background>
             <DockPanel LastChildFill="True" Background="#FFF0F0F0">
                 
-                <Menu DockPanel.Dock="Top" Background="Gray" FontWeight="Bold">
+                <Menu DockPanel.Dock="Top"  FontWeight="Bold">
                     <MenuItem Header="_File"  Visibility="Visible" Name="mnuFile" >
                         <MenuItem Header="_Open..."  Visibility="Visible" Click="AttachButton_Click"/>
                     </MenuItem>
