@@ -12,47 +12,48 @@
                     <GradientStop Color="DarkOliveGreen" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-        <DockPanel LastChildFill="True" Background="#FFF0F0F0">
-            <Menu DockPanel.Dock="Top" Background="Gray" FontWeight="Bold">
-                <MenuItem Header="_File"  Visibility="Visible" Name="mnuFile" >
-                    <MenuItem Header="_Open..."  Visibility="Visible" Click="AttachButton_Click"/>
-                </MenuItem>
-                <Rectangle HorizontalAlignment="Stretch" Fill="Black" Height="4"/>
-            </Menu>
-            <StackPanel></StackPanel>
-            <StackPanel DockPanel.Dock="bottom" >
-                <StatusBar Name="statusbar"  Background="#2E8DEF" Foreground="White" >
-                    <StatusBarItem>
-                        <TextBlock Name="status_text" />
-                    </StatusBarItem>
-                </StatusBar>
-            </StackPanel>
-            <StackPanel DockPanel.Dock="Bottom" Margin="0,10,0,10">                
-                <Button  Width="100" Height="50" Margin="0,10,0,10" HorizontalAlignment="Center"  Click="DetachButton_Click">Detach</Button>
-            </StackPanel>
-            <StackPanel Margin="10,10,10,10">
-                <Label HorizontalAlignment="Center" FontWeight="Bold">
-                    Attached VHDS
-                </Label>
+            <DockPanel LastChildFill="True" Background="#FFF0F0F0">
+                <Menu DockPanel.Dock="Top" Background="Gray" FontWeight="Bold">
+                    <MenuItem Header="_File"  Visibility="Visible" Name="mnuFile" >
+                        <MenuItem Header="_Open..."  Visibility="Visible" Click="AttachButton_Click"/>
+                    </MenuItem>
+                    <Rectangle HorizontalAlignment="Stretch" Fill="Black" Height="4"/>
+                </Menu>
+                <StackPanel></StackPanel>
+                <StackPanel DockPanel.Dock="bottom" >
+                    <StatusBar Name="statusbar"  Background="#2E8DEF" Foreground="White" >
+                        <StatusBarItem>
+                            <TextBlock Name="status_text" />
+                        </StatusBarItem>
+                    </StatusBar>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Bottom" Margin="0,10,0,10">
+                    <Button  Width="100" Height="50" Margin="0,10,0,10" HorizontalAlignment="Center"  Click="DetachButton_Click">Detach</Button>
+                </StackPanel>
+            <GroupBox Header="Attached VHDS" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" >
+                <StackPanel Margin="10,10,10,10">                                  
+                
                 <DataGrid DockPanel.Dock="top" Name="VHDDataGrid" Margin="10,10,10,10" Height="auto" Foreground="White"  HeadersVisibility="Column" VerticalAlignment="Bottom" FontSize="14" Background="#FFF3F3F3" RowBackground="#2E8DEF" AlternatingRowBackground="LightBlue" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Center" CanUserAddRows="False"  KeyboardNavigation.TabNavigation="Continue" AutoGenerateColumns="True" GridLinesVisibility="None" VirtualizingStackPanel.VirtualizationMode="Standard" ColumnWidth="*" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                    <DataGrid.ColumnHeaderStyle>
-                        <Style TargetType="{x:Type DataGridColumnHeader}">
-                            <Setter Property="FontWeight" Value="Bold"/>
-                            <Setter Property="Foreground" Value="Black"/>
-                        </Style>
-                    </DataGrid.ColumnHeaderStyle>
-                    <DataGrid.Columns>
-                        <DataGridCheckBoxColumn Header="Select"  Width="Auto" >
-                            <DataGridCheckBoxColumn.HeaderTemplate >
-                                <DataTemplate x:Name="InstallableChkBx">
-                                    <CheckBox x:Name="InstalledChkBxAll"  Margin="0,0,0,0" HorizontalAlignment="Left" Width="auto" Height="auto" />
-                                </DataTemplate>
-                            </DataGridCheckBoxColumn.HeaderTemplate>
-                        </DataGridCheckBoxColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </StackPanel>            
-        </DockPanel>
-    </Grid>
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Select"  Width="Auto" >
+                                <DataGridCheckBoxColumn.HeaderTemplate >
+                                    <DataTemplate x:Name="InstallableChkBx">
+                                        <CheckBox x:Name="InstalledChkBxAll"  Margin="0,0,0,0" HorizontalAlignment="Left" Width="auto" Height="auto" />
+                                    </DataTemplate>
+                                </DataGridCheckBoxColumn.HeaderTemplate>
+                            </DataGridCheckBoxColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+                </GroupBox>
+            </DockPanel>
+        </Grid>
     
+
 </Window>
